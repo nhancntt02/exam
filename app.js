@@ -9,10 +9,11 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+app.use(express.static('dist'));
 
 
 app.get("/", (req, res) => {
-    res.json({messsage: "Welcome to contact book application."});
+    res.sendFile('index.html');
 });
 
 app.use("/api/contacts", contactsRouter);
